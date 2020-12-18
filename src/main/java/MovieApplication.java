@@ -1,5 +1,8 @@
 import domain.Movie;
 import domain.MovieRepository;
+import domain.SelectRepository;
+import service.MovieService;
+import service.SelectService;
 import view.InputView;
 import view.OutputView;
 
@@ -10,8 +13,13 @@ public class MovieApplication {
         List<Movie> movies = MovieRepository.getMovies();
         OutputView.printMovies(movies);
 
-        int movieId = InputView.inputMovieId();
+        selectByUser();
 
         // TODO 구현 진행
+    }
+
+    private static void selectByUser() {
+        SelectService.selectMovies();
+        MovieService.compareWithSelect();
     }
 }
